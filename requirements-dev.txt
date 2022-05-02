@@ -1,0 +1,7 @@
+-r requirements.txt
+cookiecutter==1.7.3
+pytest
+coverage
+mypy
+black
+isort
