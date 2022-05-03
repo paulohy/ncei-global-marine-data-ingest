@@ -1,0 +1,16 @@
+classname: pipelines.mbari_wec.pipeline.MbariWec
+
+triggers:
+  # DEVELOPER: Update regex patterns that should trigger this pipeline
+  - .*monterrey_bay.*\.csv
+
+retriever:
+  path: pipelines/mbari_wec/config/retriever.yaml
+
+dataset:
+  path: pipelines/mbari_wec/config/dataset.yaml
+
+quality:
+  path: shared/quality.yaml
+storage:
+  path: shared/storage.yaml
