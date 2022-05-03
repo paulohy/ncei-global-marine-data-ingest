@@ -1,7 +1,6 @@
 classname: pipelines.mbari_wec.pipeline.MbariWec
 
 triggers:
-  # DEVELOPER: Update regex patterns that should trigger this pipeline
   - .*monterrey_bay.*\.csv
 
 retriever:

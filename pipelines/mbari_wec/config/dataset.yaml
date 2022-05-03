@@ -2,13 +2,16 @@
 
 attrs:
   title: mbari_wec
-  description: A spotter buoy records relevant ocean data to be cross examined with the performance of the point absorbers. Includes wind, wave, temperature, and other environmental data at the locations of the MBARI WECs.×
+  description:
+    A spotter buoy records relevant ocean data to be cross examined with the performance
+    of the point absorbers. Includes wind, wave, temperature, and other environmental
+    data at the locations of the MBARI WECs.
   location_id: monterrey_bay
   dataset_name: mbari_wec
   data_level: a1
-  # qualifier: 
-  # temporal: 
-  # institution: 
+  # qualifier:
+  # temporal:
+  # institution:
 
 coords:
   time:
@@ -16,11 +19,30 @@ coords:
     dtype: datetime64[s]
     attrs:
       units: Seconds since 1970-01-01 00:00:00
+  freq:
+    dims: [freq]
+    dtype: float
+    attrs:
+      units: Hz
 
 data_vars:
-  example_var:
+  batter_voltage:
     dims: [time]
     dtype: float
     attrs:
-      long_name:  Example Variable
-      units: km
+      long_name: Battery voltage
+      units: V
+
+  battery_power:
+    dims: [time]
+    dtype: float
+    attrs:
+      long_name: Battery power
+      units: W
+
+  wave_dir:
+    dims: [freq, time]
+    dtype: float
+    attrs:
+      long_name: Wave direction
+      units: deg
