@@ -1,0 +1,16 @@
+classname: pipelines.ncei_arctic_cruise_example.pipeline.NceiArcticCruiseExample
+
+triggers:
+  # DEVELOPER: Update regex patterns that should trigger this pipeline
+  - .*arctic_ocean.*\.csv
+
+retriever:
+  path: pipelines/ncei_arctic_cruise_example/config/retriever.yaml
+
+dataset:
+  path: pipelines/ncei_arctic_cruise_example/config/dataset.yaml
+
+quality:
+  path: shared/quality.yaml
+storage:
+  path: shared/storage.yaml
