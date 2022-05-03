@@ -3,6 +3,8 @@
 The mbari_wec ingestion pipeline was created from a cookiecutter template. This README file contains
 instructions for running and testing your pipeline.
 
+Sample data for running this pipeline can be obtained [here](https://mhkdr.openei.org/submissions/381)
+
 ## Prerequisites
 
 * Ensure that your development environment has been set up according to
