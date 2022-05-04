@@ -133,3 +133,10 @@ that folder for more information on how to configure, run, test, and debug your 
     - `pytest`: https://github.com/pytest-dev/pytest
     - `black`: https://github.com/psf/black
     - `matplotlib` guide: https://realpython.com/python-matplotlib-guide/
+
+
+## References
+
+Implementation of the [```mbari_wec ```](/pipelines/mbari_wec/README.md) pipeline was extracted from:
+
+- Sandia National Laboratories. (2021). MBARI WEC 2021 deployment [data set].  Retrieved from https://dx.doi.org/10.15473/1825670.
