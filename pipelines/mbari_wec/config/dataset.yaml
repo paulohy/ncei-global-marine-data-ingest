@@ -26,6 +26,20 @@ coords:
       units: Hz
 
 data_vars:
+  latitude:
+    dims: [time]
+    dtype: float
+    attrs:
+      long_name: Latitude
+      units: deg N
+
+  longitude:
+    dims: [time]
+    dtype: float
+    attrs:
+      long_name: Longitude
+      units: deg E
+
   batter_voltage:
     dims: [time]
     dtype: float
@@ -35,14 +49,110 @@ data_vars:
 
   battery_power:
     dims: [time]
-    dtype: float
+    dtype: float64
     attrs:
       long_name: Battery power
       units: W
 
+  humidity:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Relative humidity
+      units: "1"
+  Hm0:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Significant wave height
+      units: m
+  Tp:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Peak period
+      units: s
+  Tm:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Mean period
+      units: s
+  peak_dir:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Peak direction
+      units: degree
+  peak_spread:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Peak directional spread
+      units: degree
+  mean_dir:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Mean direction
+      units: degree
+  mean_spread:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Mean directional spread
+      units: degree
+  wind_speed:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Wind speed
+      units: m/s
+  wind_dir:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Wind direction
+      units: degree
+  temperature:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Surface temperature
+      units: K
+  S:
+    dims: [freq, time]
+    dtype: float64
+    attrs:
+      long_name: Spectral density
+      units: m^2/Hz
   wave_dir:
     dims: [freq, time]
-    dtype: float
+    dtype: float64
     attrs:
-      long_name: Wave direction
-      units: deg
+      long_name: Wave Direction
+      units: degree
+  spread:
+    dims: [freq, time]
+    dtype: float64
+    attrs:
+      long_name: Directional spreading
+      units: degree
+  df:
+    dims: [freq]
+    dtype: float64
+    attrs:
+      long_name: Frequency spacing
+      units: Hz
+  J:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Energy flux
+      units: W/m
+  Te:
+    dims: [time]
+    dtype: float64
+    attrs:
+      long_name: Energy period
+      units: s

@@ -28,6 +28,20 @@ coords:
       name: freq
 
 data_vars:
+  latitude:
+    .*:
+      name: spot_lat
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg N
+
+  longitude:
+    .*:
+      name: spot_lon
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg E
+
   batter_voltage:
     .*:
       name: batter_voltage
@@ -42,9 +56,121 @@ data_vars:
         - classname: tsdat.io.converters.UnitsConverter
           input_units: W
 
+  humidity:
+    .*:
+      name: humidity
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: 1
+
+  Hm0:
+    .*:
+      name: Hm0
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: m
+
+  Tp:
+    .*:
+      name: Tp
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: s
+
+  Tm:
+    .*:
+      name: Tm
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: s
+
+  peak_dir:
+    .*:
+      name: peak_dir
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  peak_spread:
+    .*:
+      name: peak_spread
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  mean_dir:
+    .*:
+      name: mean_dir
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  mean_spread:
+    .*:
+      name: mean_spread
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  wind_speed:
+    .*:
+      name: wind_speed
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: m/s
+
+  wind_dir:
+    .*:
+      name: wind_dir
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  temperature:
+    .*:
+      name: temperature
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: K
+
+  S:
+    .*:
+      name: S
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: m^2/Hz
+
   wave_dir:
     .*:
       name: wave_dir
       data_converters:
         - classname: tsdat.io.converters.UnitsConverter
           input_units: deg
+
+  spread:
+    .*:
+      name: spread
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: deg
+
+  df:
+    .*:
+      name: df
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: Hz
+
+  J:
+    .*:
+      name: J
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: W/m
+
+  Te:
+    .*:
+      name: Te
+      data_converters:
+        - classname: tsdat.io.converters.UnitsConverter
+          input_units: s
