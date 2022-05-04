@@ -9,9 +9,9 @@ def test_mbari_wec_pipeline():
     config = PipelineConfig.from_yaml(config_path)
     pipeline = config.instantiate_pipeline()
 
-    test_file = "pipelines/mbari_wec/test/data/input/monterrey_bay_data.csv"
+    test_file = "pipelines/mbari_wec/test/data/input/monterrey_bay.sample_data.csv"
     expected_file = (
-        "pipelines/mbari_wec/test/data/expected/abc.example.a1.20220424.000000.nc"
+        "pipelines/mbari_wec/test/data/expected/monterrey_bay.mbari_wec.a1.20210903.191201.nc"
     )
 
     dataset = pipeline.run([test_file])
