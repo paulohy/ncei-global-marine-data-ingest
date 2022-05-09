@@ -32,7 +32,7 @@ class MbariWec(IngestPipeline):
         return dataset
 
     def hook_plot_dataset(self, dataset: xr.Dataset):
-        Te_lims = [5,13]
+        Te_lims = [5, 13]
         Hm0_lims = [0.5, 2.5]
 
         ds = dataset
@@ -48,60 +48,74 @@ class MbariWec(IngestPipeline):
 
             # spectrogram
             fig, ax = plt.subplots()
-            ds.S.sel(freq=slice(1/4)).dropna('time').plot.contourf(ax=ax,
-                                levels=12,
-                                cmap=my_colors01.mpl_colormap)
+            ds.S.sel(freq=slice(1 / 4)).dropna("time").plot.contourf(
+                ax=ax, levels=12, cmap=my_colors01.mpl_colormap
+            )
             # fig.tight_layout()
-            ax.autoscale(enable=True, axis='x', tight=True)
+            ax.autoscale(enable=True, axis="x", tight=True)
 
             plot_file = get_filename(ds, title="spectrogram", extension="png")
             fig.savefig(tmp_dir / plot_file)
             plt.close(fig)
 
-
-
             # time history
-            vars_to_plot = ['J',
-                'Hm0',
-                'Te',
-                'mean_dir'
-                ]
-            fig, ax = plt.subplots(nrows=len(vars_to_plot),
-                                figsize=(8,12),
-                                sharex=True)
+            vars_to_plot = ["J", "Hm0", "Te", "mean_dir"]
+            fig, ax = plt.subplots(
+                nrows=len(vars_to_plot), figsize=(8, 12), sharex=True
+            )
 
             for axi, var in zip(ax, vars_to_plot):
-                axi.set_prop_cycle('color', qual_colors.mpl_colors)
+                axi.set_prop_cycle("color", qual_colors.mpl_colors)
                 qual_colors
-                ds[var].plot(ax=axi,
-                            marker='.',
-                            )
+                ds[var].plot(
+                    ax=axi,
+                    marker=".",
+                )
                 axi.label_outer()
-                axi.spines['right'].set_visible(False)
-                axi.spines['top'].set_visible(False)
-                axi.autoscale(enable=True, axis='x', tight=True)
+                axi.spines["right"].set_visible(False)
+                axi.spines["top"].set_visible(False)
+                axi.autoscale(enable=True, axis="x", tight=True)
 
-            ax[3].fill_between(ds.time.values, ds.mean_dir, ds.mean_dir + ds.mean_spread,
-                            color=qual_colors.mpl_colors[0],
-                            alpha=0.25,
-                            )
-            p1 = ax[3].fill_between(ds.time.values, ds.mean_dir, ds.mean_dir - ds.mean_spread,
-                            color=qual_colors.mpl_colors[0],
-                            alpha=0.25,
-                            )
+            ax[3].fill_between(
+                ds.time.values,
+                ds.mean_dir,
+                ds.mean_dir + ds.mean_spread,
+                color=qual_colors.mpl_colors[0],
+                alpha=0.25,
+            )
+            p1 = ax[3].fill_between(
+                ds.time.values,
+                ds.mean_dir,
+                ds.mean_dir - ds.mean_spread,
+                color=qual_colors.mpl_colors[0],
+                alpha=0.25,
+            )
 
-            p1.set_label('Mean directional spread')
-            ax[3].legend(fontsize='small')
+            p1.set_label("Mean directional spread")
+            ax[3].legend(fontsize="small")
             for axi in ax:
-                for item in ([axi.title, axi.xaxis.label, axi.yaxis.label] + axi.get_xticklabels() + axi.get_yticklabels()):
-                    item.set_fontsize('x-small')
+                for item in (
+                    [axi.title, axi.xaxis.label, axi.yaxis.label]
+                    + axi.get_xticklabels()
+                    + axi.get_yticklabels()
+                ):
+                    item.set_fontsize("x-small")
 
             plot_file = get_filename(ds, title="time_history", extension="png")
             fig.savefig(tmp_dir / plot_file)
             plt.close(fig)
-            
 
-
-
-
-
+            fig, ax = plt.subplots()
+            ds.plot.scatter(
+                x="Te",
+                y="Hm0",
+                hue="J",
+                ax=ax,
+                # s=4,
+                alpha=0.5,
+            )
+            ax.spines["right"].set_visible(False)
+            ax.spines["top"].set_visible(False)
+            plot_file = get_filename(ds, title="energy_flux_scatter", extension="png")
+            fig.savefig(tmp_dir / plot_file)
+            plt.close(fig)
